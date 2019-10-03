@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct  3 17:29:09 2019
+
+@author: manojkotheda
+"""
+
+import gensim
+from gensim.test.utils import datapath, get_tmpfile
+from gensim.models import KeyedVectors
+from gensim.scripts.glove2word2vec import glove2word2vec
+
+modal = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin',binary = True)
+
+modal.most_similar('man',topn = 10)
