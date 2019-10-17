@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 17 19:04:47 2019
+
+@author: manojkotheda
+"""
+
+distractors_finalAns2 = pd.read_csv('distractors_finalAns3.csv');
+dis = []
+for i in range(0, 13500):
+    distractor = distractors_finalAns2['distractor'][i]  #re.sub(r'\[.*?\]', ' ', distractors_finalAns2['distractor'][i])
+    distractor = distractor.replace("[",'"')
+    distractor = distractor.replace("]",'"')
+    dis.append(distractor)
+    
+d = {'distractor': dis}
+pd.DataFrame(data=d).to_csv('distractors_finalAns3.csv',index=False)
